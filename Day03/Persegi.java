@@ -1,6 +1,8 @@
 package Day03;
 
 public class Persegi extends BangunDatar {
+    public Persegi() {}
+
     public Persegi(double sisi) {
         setNama("Persegi");
         setHorizontal(sisi);

@@ -1,6 +1,8 @@
 package Day03;
 
 public class PersegiPanjang extends BangunDatar {
+    public PersegiPanjang() {}
+    
     public PersegiPanjang(double panjang, double tinggi) {
         setNama("Persegi Panjang");
         setHorizontal(panjang);

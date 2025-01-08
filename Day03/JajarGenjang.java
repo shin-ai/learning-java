@@ -1,6 +1,8 @@
 package Day03;
 
 public class JajarGenjang extends BangunDatar {
+    public JajarGenjang() {}
+    
     public JajarGenjang(double alas, double tinggi, double diagonal) {
         setNama("Jajar Genjang");
         setHorizontal(alas);

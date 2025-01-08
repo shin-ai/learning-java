@@ -7,6 +7,9 @@ public abstract class BangunDatar {
     private double Diagonal;
     private double jariJari;
 
+    public abstract double hitungLuas();
+    public abstract double hitungKeliling();
+
     public String getNama() {
         return Nama;
     }
@@ -37,6 +40,4 @@ public abstract class BangunDatar {
     public void setJariJari(double jariJari) {
         this.jariJari = jariJari;
     }
-    public abstract double hitungLuas();
-    public abstract double hitungKeliling();
 }

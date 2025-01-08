@@ -1,6 +1,8 @@
 package Day03;
 
 public class Lingkaran extends BangunDatar {
+    public Lingkaran() {}
+
     public Lingkaran(double jariJari) {
         setNama("Lingkaran");
         setJariJari(jariJari);

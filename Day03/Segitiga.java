@@ -1,6 +1,8 @@
 package Day03;
 
 public class Segitiga extends BangunDatar {
+    public Segitiga(){}
+
     public Segitiga(double alas, double tinggi, double diagonal) {
         setNama("Segitiga");
         setHorizontal(alas);
