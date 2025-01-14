@@ -1,0 +1,15 @@
+<form th:action="@{~/category/store}" th:object="${category}" method="post">
+  <input type="hidden" name="id" th:field="*{id}" />
+  <div class="mb-3">
+    <label for="name" class="form-label">Category Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      th:field="*{name}"
+      id="name"
+      autofocus
+    />
+  </div>
+  <button type="submit" class="float-end btn btn-primary">save</button>
+</form>
