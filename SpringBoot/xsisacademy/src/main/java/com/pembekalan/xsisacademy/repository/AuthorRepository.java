@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.pembekalan.xsisacademy.entity.User;
+import com.pembekalan.xsisacademy.entity.Author;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-    @Query(value ="SELECT u FROM User u ORDER BY u.updatedAt DESC")
-    List<User> getAllUser();
+public interface AuthorRepository extends JpaRepository<Author, Integer> {
+    @Query(value = "SELECT a FROM Author a ORDER BY a.updatedAt DESC")
+    List<Author> getAllAuthor();
 }

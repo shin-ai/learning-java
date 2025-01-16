@@ -1,0 +1,30 @@
+<form th:action="@{~/publisher/save}" th:object="${publisher}" method="post">
+  <input type="hidden" name="id" id="id" th:field="*{id}" />
+  <div class="mb-3">
+    <label for="name" class="form-label">Full Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      th:field="*{name}"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="address" class="form-label">Address</label>
+    <textarea
+      class="form-control"
+      id="address"
+      name="address"
+      th:field="*{address}"
+      rows="3"
+    ></textarea>
+  </div>
+  <button
+    type="submit"
+    class="bg-primary text-white rounded"
+    style="float: right"
+  >
+    Save
+  </button>
+</form>

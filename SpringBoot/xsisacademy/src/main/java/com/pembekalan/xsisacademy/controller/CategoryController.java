@@ -41,7 +41,7 @@ public class CategoryController {
     }
 
     @PostMapping("/store")
-    public ModelAndView postMethodName(@ModelAttribute Category category, BindingResult result) {
+    public ModelAndView save(@ModelAttribute Category category, BindingResult result) {
         if (!result.hasErrors()) {
             categoryRepository.save(category);
         }
