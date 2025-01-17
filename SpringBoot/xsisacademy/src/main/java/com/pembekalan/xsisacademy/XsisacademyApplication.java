@@ -72,9 +72,9 @@ public class XsisacademyApplication {
 			
 			for (int i = 0; i < 10 ; i++) {
 				Category categorySeed = categoryRepository.findById(faker.random().nextInt(1, 3)).orElse(null);
-				Publisher publisherSeed = publisherRepository.findById(faker.random().nextInt(1, 10)).orElse(null);;
-				Author authorSeed = authorRepository.findById(faker.random().nextInt(1, 10)).orElse(null);;
-				
+				Publisher publisherSeed = publisherRepository.findById(faker.random().nextInt(1, 10)).orElse(null);
+				Author authorSeed = authorRepository.findById(faker.random().nextInt(1, 10)).orElse(null);
+
 				Book bookSeed = new Book(
 						authorSeed,
 						categorySeed,
@@ -82,7 +82,7 @@ public class XsisacademyApplication {
 					    faker.book().title(),
                         faker.weather().description(),
                         faker.number().numberBetween(100, 500),
-                        faker.number().numberBetween(2010, 2025)
+                        faker.number().numberBetween(2000, 2025)
 				);
 				bookRepository.save(bookSeed);
 			}

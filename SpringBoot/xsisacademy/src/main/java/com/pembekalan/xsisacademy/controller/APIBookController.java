@@ -31,7 +31,7 @@ public class APIBookController {
     BookService bookService;
 
     @GetMapping("")
-    public ResponseEntity<?> getAllCategory() {
+    public ResponseEntity<?> getAllBook() {
         try {
             List<BookResponseDto> bookResponse = bookService.getAllBooks();
             return ResponseEntity.ok(new ApiResponseDto<>(200, "success", bookResponse));
