@@ -9,6 +9,6 @@ import com.pembekalan.xsisacademy.entity.Book;
 public interface BookService {
     List<BookResponseDto> getAllBooks();
     BookResponseDto getBookById(Integer id);
-    Book saveBook(BookRequestDto BookRequestDto);
+    Book saveBook(BookRequestDto bookRequestDto);
     void deleteBook(Integer id);
 }

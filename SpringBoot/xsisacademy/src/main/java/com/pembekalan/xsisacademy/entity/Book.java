@@ -1,5 +1,6 @@
 package com.pembekalan.xsisacademy.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,15 +35,22 @@ public class Book extends BaseEntity {
     
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    private Author author;
+    public Author author;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    public Category category;
 
     @ManyToOne
     @JoinColumn(name = "publisher_id", nullable = false)
-    private Publisher publisher;
+    public Publisher publisher;
+
+    // @Column(name = "author_id")
+    // private Long authorId;
+    // @Column(name = "category_id")
+    // private Long categoryId;
+    // @Column(name = "publisher_id")
+    // private Long publisherId;
 
     private String title;
     private String synopsis;

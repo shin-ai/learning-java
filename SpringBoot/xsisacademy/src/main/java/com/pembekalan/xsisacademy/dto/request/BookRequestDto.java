@@ -9,7 +9,7 @@ public class BookRequestDto {
     private String title;
     private String synopsis;
     private Integer stock;
-    private String publishedAt;
+    private Integer publishedAt;
 
     private Integer author_id;
     private Integer category_id;

@@ -9,15 +9,32 @@ import org.springframework.stereotype.Service;
 
 import com.pembekalan.xsisacademy.dto.request.BookRequestDto;
 import com.pembekalan.xsisacademy.dto.response.BookResponseDto;
+import com.pembekalan.xsisacademy.entity.Author;
 import com.pembekalan.xsisacademy.entity.Book;
+import com.pembekalan.xsisacademy.entity.Category;
+import com.pembekalan.xsisacademy.entity.Publisher;
+import com.pembekalan.xsisacademy.repository.AuthorRepository;
 import com.pembekalan.xsisacademy.repository.BookRepository;
+import com.pembekalan.xsisacademy.repository.CategoryRepository;
+import com.pembekalan.xsisacademy.repository.PublisherRepository;
 import com.pembekalan.xsisacademy.service.BookService;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class BookServiceImpl implements BookService{
     
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    CategoryRepository categoryRepository;
+
+    @Autowired
+    PublisherRepository publisherRepository;
+
+    @Autowired
+    AuthorRepository authorRepository;
 
     private ModelMapper modelMapper() {
         return new ModelMapper();
@@ -38,10 +55,25 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public Book saveBook(BookRequestDto BookRequestDto) {
-        Book book = modelMapper().map(BookRequestDto, Book.class);
+    public Book saveBook(BookRequestDto bookRequestDto) {
+        Category categorySeed = categoryRepository.findById(bookRequestDto.getCategory_id())
+                .orElseThrow(() -> new EntityNotFoundException("Category not found"));
+
+        Publisher publisherSeed = publisherRepository.findById(bookRequestDto.getPublisher_id())
+                .orElseThrow(() -> new EntityNotFoundException("Publisher not found"));
+
+        Author authorSeed = authorRepository.findById(bookRequestDto.getAuthor_id())
+                .orElseThrow(() -> new EntityNotFoundException("Author not found"));
+
+        Book book = modelMapper().map(bookRequestDto, Book.class);
+
+        book.setCategory(categorySeed);
+        book.setPublisher(publisherSeed);
+        book.setAuthor(authorSeed);
+
         return bookRepository.save(book);
     }
+
 
     @Override
     public void deleteBook(Integer id) {
