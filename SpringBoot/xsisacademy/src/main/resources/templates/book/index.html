@@ -9,7 +9,7 @@
     <section layout:fragment="container">
       <h1 class="my-3" th:text="${title}"></h1>
 
-      <div class="">
+      <div>
         <button
           type="button"
           class="btn btn-primary mt-3 mb-2"
@@ -48,13 +48,13 @@
                   th:value="${book.id}"
                   onclick="editForm(this.value)"
                 >
-                  <i class="bi bi-eye"></i>
+                  <i class="bi bi-pencil-square"></i>
                 </button>
                 <button
                   type="button"
                   class="btn btn-sm btn-danger"
                   th:value="${book.id}"
-                  onclick="confirm('Are you sure?', deleteCategory(this.value))"
+                  onclick="confirm('Are you sure?', deleteBook(this.value))"
                 >
                   <i class="bi bi-trash3"></i>
                 </button>
@@ -64,7 +64,7 @@
         </table>
       </div>
 
-      <!-- Modal -->
+      <!-- Modal Form -->
       <div
         class="modal fade"
         id="modalForm"
@@ -75,7 +75,9 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="modalFormLabel">Modal title</h1>
+              <h1 class="modal-title fs-5" id="modalFormLabel">
+                Add/Edit Book
+              </h1>
               <button
                 type="button"
                 class="btn-close"
@@ -84,19 +86,60 @@
               ></button>
             </div>
             <div class="modal-body">
-              <!-- <div class="mb-3">
+              <form id="bookForm">
+                <input type="hidden" id="id" />
+                <div class="mb-3">
+                  <label class="form-label">Book Title</label>
+                  <input type="text" class="form-control" id="title" />
+                </div>
 
-                        <label for="name" class="form-label">Email address</label>
+                <!-- Category Dropdown -->
+                <div class="mb-3">
+                  <label class="form-label">Category</label>
+                  <select class="form-control" id="categoryId"></select>
+                </div>
 
-                        <input type="text" class="form-control" id="name" name="name">
+                <!-- Author Dropdown -->
+                <div class="mb-3">
+                  <label class="form-label">Author</label>
+                  <select class="form-control" id="authorId"></select>
+                </div>
 
-                    </div> -->
+                <!-- Publisher Dropdown -->
+                <div class="mb-3">
+                  <label class="form-label">Publisher</label>
+                  <select class="form-control" id="publisherId"></select>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Synopsis</label>
+                  <textarea class="form-control" id="synopsis"></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Stock</label>
+                  <input type="number" class="form-control" id="stock" />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Published At</label>
+                  <input type="number" class="form-control" id="publishedAt" />
+                </div>
+
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="saveBook()"
+                >
+                  Save
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
 
-      <!--    <script th:src="@{/js/category.js}"></script>-->
+      <script th:src="@{/js/book.js}"></script>
     </section>
   </body>
 </html>

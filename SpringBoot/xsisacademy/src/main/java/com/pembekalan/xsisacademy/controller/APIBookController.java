@@ -3,8 +3,6 @@ package com.pembekalan.xsisacademy.controller;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +48,7 @@ public class APIBookController {
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public ResponseEntity<?> saveBook(@RequestBody BookRequestDto bookRequestDto){
         // ModelMapper modelMapper = new ModelMapper();
         // modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
@@ -68,7 +66,7 @@ public class APIBookController {
         bookRequestDto.setId(id);
         bookRequestDto.setAuthor_id(bookRequestDto.getAuthor_id());
         bookRequestDto.setPublisher_id(bookRequestDto.getPublisher_id());
-        bookRequestDto.setCategory_id(bookRequestDto.getPublisher_id());
+        bookRequestDto.setCategory_id(bookRequestDto.getCategory_id());
 
         bookService.saveBook(bookRequestDto);
         LinkedHashMap<String, Object> resultMap = new LinkedHashMap<>();

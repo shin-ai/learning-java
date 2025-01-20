@@ -40,7 +40,7 @@
                   type="button"
                   class="btn btn-sm btn-danger"
                   th:value="${author.id}"
-                  onclick="deleteForm(this.value)"
+                  onclick="confirm('Are you sure?', deleteForm(this.value))"
                 >
                   <i class="bi bi-trash"></i>
                 </button>
@@ -69,7 +69,39 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body"></div>
+            <div class="modal-body">
+              <form id="authorForm">
+                <input type="hidden" name="id" id="id" />
+                <div class="mb-3">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="publishedBooks" class="form-label"
+                    >Published Books</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="publishedBooks"
+                    name="publishedBooks"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="bg-primary text-white rounded"
+                  style="float: right"
+                  onclick="save()"
+                >
+                  Save
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -41,15 +41,6 @@ public class ViewController {
         return "category/index"; // templates/publisher/index.html
     }
 
-    @GetMapping("/category/form")
-    public String formCategories(Model model) {
-        String title = "Category Form";
-        CategoryResponseDto categoyResponseDto = new CategoryResponseDto();
-        model.addAttribute("category", categoyResponseDto);
-        model.addAttribute("title", title);
-        return "category/form"; // templates/publisher/index.html
-    }
-
     @GetMapping("/author")
     public String getAllAuthors(Model model) {
         String title = "Author Page";

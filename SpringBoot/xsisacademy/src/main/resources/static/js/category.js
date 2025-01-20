@@ -13,6 +13,7 @@ function editForm(id) {
     url: `${BASE_URL}/${id}`,
     success: function (response) {
       let category = response.data;
+      console.log(category);
       $("#id").val(category.id);
       $("#name").val(category.name);
       $("#myModal").modal("show");
@@ -47,6 +48,7 @@ function deleteForm(id) {
     type: "DELETE",
     url: `${BASE_URL}/${id}`,
     success: function (response) {
+      alert("Success");
       location.reload();
     },
   });

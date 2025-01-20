@@ -38,7 +38,7 @@
                   type="button"
                   class="btn btn-sm btn-danger"
                   th:value="${category.id}"
-                  onclick="deleteForm(this.value)"
+                  onclick="confirm('Are you sure?', deleteForm(this.value))"
                 >
                   <i class="bi bi-trash"></i>
                 </button>

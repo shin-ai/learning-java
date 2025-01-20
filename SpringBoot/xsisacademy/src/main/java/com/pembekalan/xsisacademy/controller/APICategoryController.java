@@ -74,7 +74,7 @@ public class APICategoryController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public ResponseEntity<?> saveCategory(@RequestBody CategoryRequestDto categoryRequestDto){
         LinkedHashMap<String, Object> resultMap = new LinkedHashMap<>();
         try {

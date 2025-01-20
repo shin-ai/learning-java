@@ -14,6 +14,6 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
     // @Query(value ="SELECT * FROM category ORDER BY updated_at DESC", nativeQuery = true)
     // List<Category> getAllCategory();
 
-    @Query(value ="SELECT c FROM Category c ORDER BY c.updatedAt DESC")
+    @Query(value ="SELECT c FROM Category c WHERE c.isDeleted = false ORDER BY c.updatedAt DESC")
     List<Category> getAllCategory();
 }
